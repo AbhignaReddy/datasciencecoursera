@@ -44,3 +44,4 @@ data_set_mean_std<-rename(data_set_mean_std,c("data_set$Subject"="Subject"))
 #Finding mean of the columns
 data_melt<-melt(data_set_mean_std,id=c("Activity","Subject"))
 data_cast<-dcast(data_melt,Activity + Subject ~ variable, mean)
+write.table(data_cast,file = "./Assignment.txt",row.names = FALSE)
